@@ -54,7 +54,6 @@ def main():
     browser = mechanicalsoup.StatefulBrowser(
         soup_config={'features': 'lxml'},
         raise_on_404=True,
-        user_agent='MyBot/0.1: mysite.example.com/bot_info',
     )
 
     credentials = read_credentials("credentials.json")
