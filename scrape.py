@@ -33,7 +33,7 @@ def get_course_status(browser, unique):
     # Return a string of the course status if the course exists in this semseter schedule,
     # returns None otherwise
     browser.open("https://utdirect.utexas.edu/apps/registrar/course_schedule/" + str(UT_SCHEDULE_ID) + "/" + str(unique) + "/")
-    # UT's systems (built on Sun's Open SSO?) use a form with something called 'LARES data' which is automatically submitted
+    # UT's systems (built on OpenAM) use a form with something called 'LARES data' which is automatically submitted
     # on pageload by browsers, followed by a second auto-submitted form, and then the final webpage. The Browser in mechanicalsoup
     # doesn't auto load these two forms, so we must do it manually.
     browser.select_form()
@@ -62,7 +62,7 @@ def main():
     if(login(browser, credentials) is False):
         print("Login failed. Have you entered the correct credentials in credentials.json?")
 
-    print(get_course_status(browser, 12345))
+    print(get_course_status(browser, 00000))
 
 
 main()
